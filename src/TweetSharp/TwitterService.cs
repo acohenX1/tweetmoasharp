@@ -543,6 +543,16 @@ namespace TweetSharp
 			return result;
 		}
 
+		private IAsyncResult BeginWithHammock<T>(RestClient client, WebMethod method, string path, byte[] bodyContent, string contentType)
+		{
+			var request = PrepareHammockQuery(path);
+			request.Method = method;
+			request.AddPostContent(bodyContent);
+			request.AddHeader("Content-Type", contentType);
+			var result = _client.BeginRequest<T>(request);
+			return result;
+		}
+
 		private IAsyncResult BeginWithHammockNoResponse(RestClient client, WebMethod method, string path, params object[] segments)
 		{
 			path = ResolveUrlSegments(path, segments.ToList());

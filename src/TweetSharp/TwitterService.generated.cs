@@ -4832,15 +4832,15 @@ namespace TweetSharp
         
 		public virtual IAsyncResult BeginGetConfiguration()
 		{
-				
+							
 
 			return BeginWithHammock<TwitterConfiguration>(_client, WebMethod.Get, "help/configuration", FormatAsString);
-		}
+					}
 
         
 		public virtual IAsyncResult BeginListTweetsMentioningMe(ListTweetsMentioningMeOptions options)
 		{
-			var count = options.Count;
+						var count = options.Count;
 			var since_id = options.SinceId;
 			var max_id = options.MaxId;
 			var trim_user = options.TrimUser;
@@ -4850,12 +4850,12 @@ namespace TweetSharp
 				
 
 			return BeginWithHammock<IEnumerable<TwitterStatus>>(_client, WebMethod.Get, "statuses/mentions_timeline", FormatAsString, "?count=", count, "&since_id=", since_id, "&max_id=", max_id, "&trim_user=", trim_user, "&contributor_details=", contributor_details, "&include_entities=", include_entities, "&tweet_mode=", tweet_mode);
-		}
+					}
 
         
 		public virtual IAsyncResult BeginListTweetsOnUserTimeline(ListTweetsOnUserTimelineOptions options)
 		{
-			var user_id = options.UserId;
+						var user_id = options.UserId;
 			var screen_name = options.ScreenName;
 			var since_id = options.SinceId;
 			var count = options.Count;
@@ -4868,12 +4868,12 @@ namespace TweetSharp
 				
 
 			return BeginWithHammock<IEnumerable<TwitterStatus>>(_client, WebMethod.Get, "statuses/user_timeline", FormatAsString, "?user_id=", user_id, "&screen_name=", screen_name, "&since_id=", since_id, "&count=", count, "&max_id=", max_id, "&trim_user=", trim_user, "&exclude_replies=", exclude_replies, "&contributor_details=", contributor_details, "&include_rts=", include_rts, "&tweet_mode=", tweet_mode);
-		}
+					}
 
         
 		public virtual IAsyncResult BeginListTweetsOnHomeTimeline(ListTweetsOnHomeTimelineOptions options)
 		{
-			var count = options.Count;
+						var count = options.Count;
 			var since_id = options.SinceId;
 			var max_id = options.MaxId;
 			var trim_user = options.TrimUser;
@@ -4884,12 +4884,12 @@ namespace TweetSharp
 				
 
 			return BeginWithHammock<IEnumerable<TwitterStatus>>(_client, WebMethod.Get, "statuses/home_timeline", FormatAsString, "?count=", count, "&since_id=", since_id, "&max_id=", max_id, "&trim_user=", trim_user, "&exclude_replies=", exclude_replies, "&contributor_details=", contributor_details, "&include_entities=", include_entities, "&tweet_mode=", tweet_mode);
-		}
+					}
 
         
 		public virtual IAsyncResult BeginListRetweetsOfMyTweets(ListRetweetsOfMyTweetsOptions options)
 		{
-			var count = options.Count;
+						var count = options.Count;
 			var since_id = options.SinceId;
 			var max_id = options.MaxId;
 			var trim_user = options.TrimUser;
@@ -4899,24 +4899,24 @@ namespace TweetSharp
 				
 
 			return BeginWithHammock<IEnumerable<TwitterStatus>>(_client, WebMethod.Get, "statuses/retweets_of_me", FormatAsString, "?count=", count, "&since_id=", since_id, "&max_id=", max_id, "&trim_user=", trim_user, "&include_entities=", include_entities, "&include_user_entities=", include_user_entities, "&tweet_mode=", tweet_mode);
-		}
+					}
 
         
 		public virtual IAsyncResult BeginRetweets(RetweetsOptions options)
 		{
-			var id = options.Id;
+						var id = options.Id;
 			var count = options.Count;
 			var trim_user = options.TrimUser;
 			var tweet_mode = options.TweetMode;
 				
 
 			return BeginWithHammock<IEnumerable<TwitterStatus>>(_client, WebMethod.Get, "statuses/retweets/{id}", FormatAsString, "?id=", id, "&count=", count, "&trim_user=", trim_user, "&tweet_mode=", tweet_mode);
-		}
+					}
 
         
 		public virtual IAsyncResult BeginGetTweet(GetTweetOptions options)
 		{
-			var id = options.Id;
+						var id = options.Id;
 			var trim_user = options.TrimUser;
 			var include_my_retweet = options.IncludeMyRetweet;
 			var include_entities = options.IncludeEntities;
@@ -4924,22 +4924,22 @@ namespace TweetSharp
 				
 
 			return BeginWithHammock<TwitterStatus>(_client, WebMethod.Get, "statuses/show/{id}", FormatAsString, "?id=", id, "&trim_user=", trim_user, "&include_my_retweet=", include_my_retweet, "&include_entities=", include_entities, "&tweet_mode=", tweet_mode);
-		}
+					}
 
         
 		public virtual IAsyncResult BeginDeleteTweet(DeleteTweetOptions options)
 		{
-			var id = options.Id;
+						var id = options.Id;
 			var trim_user = options.TrimUser;
 				
 
 			return BeginWithHammock<TwitterStatus>(_client, WebMethod.Post, "statuses/destroy/{id}", FormatAsString, "?id=", id, "&trim_user=", trim_user);
-		}
+					}
 
         
 		public virtual IAsyncResult BeginSendTweet(SendTweetOptions options)
 		{
-			var status = options.Status;
+						var status = options.Status;
 			var in_reply_to_status_id = options.InReplyToStatusId;
 			var lat = options.Lat;
 			var @long = options.@Long;
@@ -4953,32 +4953,32 @@ namespace TweetSharp
 				
 
 			return BeginWithHammock<TwitterStatus>(_client, WebMethod.Post, "statuses/update", FormatAsString, "?status=", status, "&in_reply_to_status_id=", in_reply_to_status_id, "&lat=", lat, "&long=", @long, "&place_id=", place_id, "&display_coordinates=", display_coordinates, "&trim_user=", trim_user, "&media_ids=", media_ids, "&auto_populate_reply_metadata=", auto_populate_reply_metadata, "&exclude_reply_user_ids=", exclude_reply_user_ids, "&attachment_url=", attachment_url);
-		}
+					}
 
         
 		public virtual IAsyncResult BeginRetweet(RetweetOptions options)
 		{
-			var id = options.Id;
+						var id = options.Id;
 			var trim_user = options.TrimUser;
 				
 
 			return BeginWithHammock<TwitterStatus>(_client, WebMethod.Post, "statuses/retweet/{id}", FormatAsString, "?id=", id, "&trim_user=", trim_user);
-		}
+					}
 
         
 		public virtual IAsyncResult BeginUnretweet(UnretweetOptions options)
 		{
-			var id = options.Id;
+						var id = options.Id;
 			var trim_user = options.TrimUser;
 				
 
 			return BeginWithHammock<TwitterStatus>(_client, WebMethod.Post, "statuses/unretweet/{id}", FormatAsString, "?id=", id, "&trim_user=", trim_user);
-		}
+					}
 
         [Obsolete("Twitter has declared this method obsolete; it may cease to function at any time. Check https://dev.twitter.com/docs/api#deprecated for alternatives.")]
 		public virtual IAsyncResult BeginSendTweetWithMedia(SendTweetWithMediaOptions options)
 		{
-			var status = options.Status;
+						var status = options.Status;
 			var possibly_sensitive = options.PossiblySensitive;
 			var in_reply_to_status_id = options.InReplyToStatusId;
 			var lat = options.Lat;
@@ -4989,62 +4989,62 @@ namespace TweetSharp
 				
 
 			return BeginWithHammock<TwitterStatus>(_client, WebMethod.Post, "statuses/update_with_media", images, FormatAsString, "?status=", status, "&possibly_sensitive=", possibly_sensitive, "&in_reply_to_status_id=", in_reply_to_status_id, "&lat=", lat, "&long=", @long, "&place_id=", place_id, "&display_coordinates=", display_coordinates);
-		}
+					}
 
         
 		public virtual IAsyncResult BeginUploadMedia(UploadMediaOptions options)
 		{
-			 var media = options.Media;
+						 var media = options.Media;
 				
 
 			return BeginWithHammock<TwitterUploadedMedia>(_uploadMediaClient, WebMethod.Post, "media/upload", media, FormatAsString);
-		}
+					}
 
         
 		public virtual IAsyncResult BeginUploadMediaInit(UploadMediaInitOptions options)
 		{
-			var media_type = options.MediaType;
+						var media_type = options.MediaType;
 			var media_category = options.MediaCategory;
 			var total_bytes = options.TotalBytes;
 			var shared = options.Shared;
 				
 
 			return BeginWithHammock<TwitterChunkedMedia>(_uploadMediaClient, WebMethod.Post, "media/upload", FormatAsString, "?command=", "INIT", "&media_type=", media_type, "&media_category=", media_category, "&total_bytes=", total_bytes, "&shared=", shared);
-		}
+					}
 
         
 		public virtual IAsyncResult BeginUploadMediaAppend(UploadMediaAppendOptions options)
 		{
-			var media_id = options.MediaId;
+						var media_id = options.MediaId;
 			var segment_index = options.SegmentIndex;
 			 var media = options.Media;
 				
 
 			return  BeginWithHammockNoResponse(_uploadMediaClient, WebMethod.Post, "media/upload", media, FormatAsString, "?command=", "APPEND", "&media_id=", media_id, "&segment_index=", segment_index);
-		}
+					}
 
         
 		public virtual IAsyncResult BeginUploadMediaFinalize(UploadMediaFinalizeOptions options)
 		{
-			var media_id = options.MediaId;
+						var media_id = options.MediaId;
 				
 
 			return BeginWithHammock<UploadMediaResult>(_uploadMediaClient, WebMethod.Post, "media/upload", FormatAsString, "?command=", "FINALIZE", "&media_id=", media_id);
-		}
+					}
 
         
 		public virtual IAsyncResult BeginUploadMediaCheckStatus(UploadMediaCheckStatusOptions options)
 		{
-			var media_id = options.MediaId;
+						var media_id = options.MediaId;
 				
 
 			return BeginWithHammock<UploadMediaResult>(_uploadMediaClient, WebMethod.Get, "media/upload", FormatAsString, "?command=", "STATUS", "&media_id=", media_id);
-		}
+					}
 
         
 		public virtual IAsyncResult BeginSearch(SearchOptions options)
 		{
-			var q = options.Q;
+						var q = options.Q;
 			var geocode = options.Geocode;
 			var lang = options.Lang;
 			var locale = options.Locale;
@@ -5058,150 +5058,145 @@ namespace TweetSharp
 				
 
 			return BeginWithHammock<TwitterSearchResult>(_client, WebMethod.Get, "search/tweets", FormatAsString, "?q=", q, "&geocode=", geocode, "&lang=", lang, "&locale=", locale, "&result_type=", resultType, "&count=", count, "&since_id=", since_id, "&max_id=", max_id, "&include_entities=", include_entities, "&callback=", callback, "&until=", until);
-		}
+					}
 
         
 		public virtual IAsyncResult BeginSendDirectMessage(SendDirectMessageOptions options)
 		{
-			var recipientId = options.Recipientid;
-			var text = options.Text;
-			var mediaType = options.Mediatype;
-			var mediaId = options.Mediaid;
-			var quickReplies = options.Quickreplies;
-				
+						var generator = new SendDirectMessageBodyGenerator();
 
-			return BeginWithHammock<TwitterDirectMessageResult>(_client, WebMethod.Post, "direct_messages/events/new", FormatAsString, "?recipient_id=", recipientId, "&text=", text, "&media_type=", mediaType, "&media_id=", mediaId, "&quick_replies=", quickReplies);
-		}
+				return BeginWithHammock<TwitterDirectMessageResult>(_client, WebMethod.Post, "direct_messages/events/new" + FormatAsString, generator.GenerateBody(options), generator.ContentType);
+					}
 
         
 		public virtual IAsyncResult BeginGetDirectMessage(GetDirectMessageOptions options)
 		{
-			var id = options.Id;
+						var id = options.Id;
 				
 
 			return BeginWithHammock<TwitterDirectMessageResult>(_client, WebMethod.Get, "direct_messages/events/show", FormatAsString, "?id=", id);
-		}
+					}
 
         
 		public virtual IAsyncResult BeginListDirectMessages(ListDirectMessagesOptions options)
 		{
-			var count = options.Count;
+						var count = options.Count;
 			var cursor = options.Cursor;
 				
 
 			return BeginWithHammock<TwitterDirectMessageListResult>(_client, WebMethod.Get, "direct_messages/events/list", FormatAsString, "?count=", count, "&cursor=", cursor);
-		}
+					}
 
         
 		public virtual IAsyncResult BeginDeleteDirectMessage(DeleteDirectMessageOptions options)
 		{
-			var id = options.Id;
+						var id = options.Id;
 				
 
 			return  BeginWithHammockNoResponse(_client, WebMethod.Delete, "direct_messages/events/destroy", FormatAsString, "?id=", id);
-		}
+					}
 
         
 		public virtual IAsyncResult BeginListFriendIdsOf(ListFriendIdsOfOptions options)
 		{
-			var user_id = options.UserId;
+						var user_id = options.UserId;
 			var screen_name = options.ScreenName;
 			var cursor = options.Cursor;
 			var count = options.Count;
 				
 
 			return BeginWithHammock<TwitterCursorList<long>>(_client, WebMethod.Get, "friends/ids", FormatAsString, "?user_id=", user_id, "&screen_name=", screen_name, "&cursor=", cursor, "&count=", count);
-		}
+					}
 
         
 		public virtual IAsyncResult BeginListFollowerIdsOf(ListFollowerIdsOfOptions options)
 		{
-			var user_id = options.UserId;
+						var user_id = options.UserId;
 			var screen_name = options.ScreenName;
 			var cursor = options.Cursor;
 			var count = options.Count;
 				
 
 			return BeginWithHammock<TwitterCursorList<long>>(_client, WebMethod.Get, "followers/ids", FormatAsString, "?user_id=", user_id, "&screen_name=", screen_name, "&cursor=", cursor, "&count=", count);
-		}
+					}
 
         
 		public virtual IAsyncResult BeginListFriendshipsFor(ListFriendshipsForOptions options)
 		{
-			var screen_name = options.ScreenName;
+						var screen_name = options.ScreenName;
 			var user_id = options.UserId;
 				
 
 			return BeginWithHammock<IEnumerable<TwitterFriendshipLookup>>(_client, WebMethod.Get, "friendships/lookup", FormatAsString, "?screen_name=", screen_name, "&user_id=", user_id);
-		}
+					}
 
         
 		public virtual IAsyncResult BeginGetIncomingFriendRequests(GetIncomingFriendRequestsOptions options)
 		{
-			var cursor = options.Cursor;
+						var cursor = options.Cursor;
 				
 
 			return BeginWithHammock<TwitterCursorList<long>>(_client, WebMethod.Get, "friendships/incoming", FormatAsString, "?cursor=", cursor);
-		}
+					}
 
         
 		public virtual IAsyncResult BeginGetOutgoingFriendRequests(GetOutgoingFriendRequestsOptions options)
 		{
-			var cursor = options.Cursor;
+						var cursor = options.Cursor;
 				
 
 			return BeginWithHammock<TwitterCursorList<long>>(_client, WebMethod.Get, "friendships/outgoing", FormatAsString, "?cursor=", cursor);
-		}
+					}
 
         
 		public virtual IAsyncResult BeginFollowUser(FollowUserOptions options)
 		{
-			var screen_name = options.ScreenName;
+						var screen_name = options.ScreenName;
 			var user_id = options.UserId;
 			var follow = options.Follow;
 				
 
 			return BeginWithHammock<TwitterUser>(_client, WebMethod.Post, "friendships/create", FormatAsString, "?screen_name=", screen_name, "&user_id=", user_id, "&follow=", follow);
-		}
+					}
 
         
 		public virtual IAsyncResult BeginUnfollowUser(UnfollowUserOptions options)
 		{
-			var screen_name = options.ScreenName;
+						var screen_name = options.ScreenName;
 			var user_id = options.UserId;
 				
 
 			return BeginWithHammock<TwitterUser>(_client, WebMethod.Post, "friendships/destroy", FormatAsString, "?screen_name=", screen_name, "&user_id=", user_id);
-		}
+					}
 
         
 		public virtual IAsyncResult BeginUpdateFriendship(UpdateFriendshipOptions options)
 		{
-			var screen_name = options.ScreenName;
+						var screen_name = options.ScreenName;
 			var user_id = options.UserId;
 			var device = options.Device;
 			var retweets = options.Retweets;
 				
 
 			return BeginWithHammock<TwitterFriendship>(_client, WebMethod.Post, "friendships/update", FormatAsString, "?screen_name=", screen_name, "&user_id=", user_id, "&device=", device, "&retweets=", retweets);
-		}
+					}
 
         
 		public virtual IAsyncResult BeginGetFriendshipInfo(GetFriendshipInfoOptions options)
 		{
-			var source_id = options.SourceId;
+						var source_id = options.SourceId;
 			var source_screen_name = options.SourceScreenName;
 			var target_id = options.TargetId;
 			var target_screen_name = options.TargetScreenName;
 				
 
 			return BeginWithHammock<TwitterFriendship>(_client, WebMethod.Get, "friendships/show", FormatAsString, "?source_id=", source_id, "&source_screen_name=", source_screen_name, "&target_id=", target_id, "&target_screen_name=", target_screen_name);
-		}
+					}
 
         
 		public virtual IAsyncResult BeginListFriends(ListFriendsOptions options)
 		{
-			var user_id = options.UserId;
+						var user_id = options.UserId;
 			var screen_name = options.ScreenName;
 			var count = options.Count;
 			var cursor = options.Cursor;
@@ -5210,12 +5205,12 @@ namespace TweetSharp
 				
 
 			return BeginWithHammock<TwitterCursorList<TwitterUser>>(_client, WebMethod.Get, "friends/list", FormatAsString, "?user_id=", user_id, "&screen_name=", screen_name, "&count=", count, "&cursor=", cursor, "&skip_status=", skip_status, "&include_user_entities=", include_user_entities);
-		}
+					}
 
         
 		public virtual IAsyncResult BeginListFollowers(ListFollowersOptions options)
 		{
-			var user_id = options.UserId;
+						var user_id = options.UserId;
 			var screen_name = options.ScreenName;
 			var count = options.Count;
 			var cursor = options.Cursor;
@@ -5224,42 +5219,42 @@ namespace TweetSharp
 				
 
 			return BeginWithHammock<TwitterCursorList<TwitterUser>>(_client, WebMethod.Get, "followers/list", FormatAsString, "?user_id=", user_id, "&screen_name=", screen_name, "&count=", count, "&cursor=", cursor, "&skip_status=", skip_status, "&include_user_entities=", include_user_entities);
-		}
+					}
 
         
 		public virtual IAsyncResult BeginGetAccountSettings()
 		{
-				
+							
 
 			return BeginWithHammock<TwitterAccount>(_client, WebMethod.Get, "account/settings", FormatAsString);
-		}
+					}
 
         
 		public virtual IAsyncResult BeginGetUserProfile(GetUserProfileOptions options)
 		{
-			var include_entities = options.IncludeEntities;
+						var include_entities = options.IncludeEntities;
 			var skip_status = options.SkipStatus;
 			var include_email = options.IncludeEmail;
 				
 
 			return BeginWithHammock<TwitterUser>(_client, WebMethod.Get, "account/verify_credentials", FormatAsString, "?include_entities=", include_entities, "&skip_status=", skip_status, "&include_email=", include_email);
-		}
+					}
 
         
 		public virtual IAsyncResult BeginVerifyCredentials(VerifyCredentialsOptions options)
 		{
-			var include_entities = options.IncludeEntities;
+						var include_entities = options.IncludeEntities;
 			var skip_status = options.SkipStatus;
 			var include_email = options.IncludeEmail;
 				
 
 			return BeginWithHammock<TwitterUser>(_client, WebMethod.Get, "account/verify_credentials", FormatAsString, "?include_entities=", include_entities, "&skip_status=", skip_status, "&include_email=", include_email);
-		}
+					}
 
         
 		public virtual IAsyncResult BeginUpdateAccountSettings(UpdateAccountSettingsOptions options)
 		{
-			var trend_location_woeid = options.TrendLocationWoeid;
+						var trend_location_woeid = options.TrendLocationWoeid;
 			var sleep_time_enabled = options.SleepTimeEnabled;
 			var start_sleep_time = options.StartSleepTime;
 			var end_sleep_time = options.EndSleepTime;
@@ -5268,22 +5263,22 @@ namespace TweetSharp
 				
 
 			return BeginWithHammock<TwitterAccount>(_client, WebMethod.Post, "account/settings", FormatAsString, "?trend_location_woeid=", trend_location_woeid, "&sleep_time_enabled=", sleep_time_enabled, "&start_sleep_time=", start_sleep_time, "&end_sleep_time=", end_sleep_time, "&time_zone=", time_zone, "&lang=", lang);
-		}
+					}
 
         
 		public virtual IAsyncResult BeginUpdateDeliveryDevice(UpdateDeliveryDeviceOptions options)
 		{
-			var device = options.Device;
+						var device = options.Device;
 			var include_entities = options.IncludeEntities;
 				
 
 			return BeginWithHammock<TwitterUser>(_client, WebMethod.Get, "account/update_delivery_device", FormatAsString, "?device=", device, "&include_entities=", include_entities);
-		}
+					}
 
         
 		public virtual IAsyncResult BeginUpdateProfile(UpdateProfileOptions options)
 		{
-			var name = options.Name;
+						var name = options.Name;
 			var url = options.Url;
 			var location = options.Location;
 			var description = options.Description;
@@ -5292,12 +5287,12 @@ namespace TweetSharp
 				
 
 			return BeginWithHammock<TwitterUser>(_client, WebMethod.Post, "account/update_profile", FormatAsString, "?name=", name, "&url=", url, "&location=", location, "&description=", description, "&include_entities=", include_entities, "&skip_status=", skip_status);
-		}
+					}
 
         
 		public virtual IAsyncResult BeginUpdateProfileBackgroundImage(UpdateProfileBackgroundImageOptions options)
 		{
-			var imagePath = options.Imagepath;
+						var imagePath = options.Imagepath;
 			var tile = options.Tile;
 			var include_entities = options.IncludeEntities;
 			var skip_status = options.SkipStatus;
@@ -5305,12 +5300,12 @@ namespace TweetSharp
 				
 
 			return BeginWithHammock<TwitterUser>(_client, WebMethod.Post, "account/update_profile_background_image", FormatAsString, "?image_path=", imagePath, "&tile=", tile, "&include_entities=", include_entities, "&skip_status=", skip_status, "&use=", use);
-		}
+					}
 
         
 		public virtual IAsyncResult BeginUpdateProfileColors(UpdateProfileColorsOptions options)
 		{
-			var profile_background_color = options.ProfileBackgroundColor;
+						var profile_background_color = options.ProfileBackgroundColor;
 			var profile_link_color = options.ProfileLinkColor;
 			var profile_sidebar_border_color = options.ProfileSidebarBorderColor;
 			var profile_sidebar_fill_color = options.ProfileSidebarFillColor;
@@ -5320,177 +5315,177 @@ namespace TweetSharp
 				
 
 			return BeginWithHammock<TwitterUser>(_client, WebMethod.Post, "account/update_profile_colors", FormatAsString, "?profile_background_color=", profile_background_color, "&profile_link_color=", profile_link_color, "&profile_sidebar_border_color=", profile_sidebar_border_color, "&profile_sidebar_fill_color=", profile_sidebar_fill_color, "&profile_text_color=", profile_text_color, "&include_entities=", include_entities, "&skip_status=", skip_status);
-		}
+					}
 
         
 		public virtual IAsyncResult BeginUpdateProfileImage(UpdateProfileImageOptions options)
 		{
-			var image_path = options.ImagePath;
+						var image_path = options.ImagePath;
 			var include_entities = options.IncludeEntities;
 			var skip_status = options.SkipStatus;
 				
 
 			return BeginWithHammock<TwitterUser>(_client, WebMethod.Post, "account/update_profile_image", FormatAsString, "?image_path=", image_path, "&include_entities=", include_entities, "&skip_status=", skip_status);
-		}
+					}
 
         
 		public virtual IAsyncResult BeginListBlockedUsers(ListBlockedUsersOptions options)
 		{
-			var include_entities = options.IncludeEntities;
+						var include_entities = options.IncludeEntities;
 			var skip_status = options.SkipStatus;
 			var cursor = options.Cursor;
 				
 
 			return BeginWithHammock<TwitterCursorList<TwitterUser>>(_client, WebMethod.Get, "blocks/list", FormatAsString, "?include_entities=", include_entities, "&skip_status=", skip_status, "&cursor=", cursor);
-		}
+					}
 
         
 		public virtual IAsyncResult BeginListBlockedUserIds(ListBlockedUserIdsOptions options)
 		{
-			var cursor = options.Cursor;
+						var cursor = options.Cursor;
 				
 
 			return BeginWithHammock<TwitterCursorList<long>>(_client, WebMethod.Get, "blocks/ids", FormatAsString, "?cursor=", cursor);
-		}
+					}
 
         
 		public virtual IAsyncResult BeginBlockUser(BlockUserOptions options)
 		{
-			var user_id = options.UserId;
+						var user_id = options.UserId;
 			var screen_name = options.ScreenName;
 			var include_entities = options.IncludeEntities;
 			var skip_status = options.SkipStatus;
 				
 
 			return BeginWithHammock<TwitterUser>(_client, WebMethod.Post, "blocks/create", FormatAsString, "?user_id=", user_id, "&screen_name=", screen_name, "&include_entities=", include_entities, "&skip_status=", skip_status);
-		}
+					}
 
         
 		public virtual IAsyncResult BeginUnblockUser(UnblockUserOptions options)
 		{
-			var screen_name = options.ScreenName;
+						var screen_name = options.ScreenName;
 			var user_id = options.UserId;
 			var include_entities = options.IncludeEntities;
 			var skip_status = options.SkipStatus;
 				
 
 			return BeginWithHammock<TwitterUser>(_client, WebMethod.Post, "blocks/destroy", FormatAsString, "?screen_name=", screen_name, "&user_id=", user_id, "&include_entities=", include_entities, "&skip_status=", skip_status);
-		}
+					}
 
         
 		public virtual IAsyncResult BeginMuteUser(MuteUserOptions options)
 		{
-			var user_id = options.UserId;
+						var user_id = options.UserId;
 			var screen_name = options.ScreenName;
 				
 
 			return BeginWithHammock<TwitterUser>(_client, WebMethod.Post, "mutes/users/create", FormatAsString, "?user_id=", user_id, "&screen_name=", screen_name);
-		}
+					}
 
         
 		public virtual IAsyncResult BeginUnmuteUser(UnmuteUserOptions options)
 		{
-			var user_id = options.UserId;
+						var user_id = options.UserId;
 			var screen_name = options.ScreenName;
 				
 
 			return BeginWithHammock<TwitterUser>(_client, WebMethod.Post, "mutes/users/destroy", FormatAsString, "?user_id=", user_id, "&screen_name=", screen_name);
-		}
+					}
 
         
 		public virtual IAsyncResult BeginListMutedUserIds(ListMutedUserIdsOptions options)
 		{
-			var cursor = options.Cursor;
+						var cursor = options.Cursor;
 				
 
 			return BeginWithHammock<TwitterCursorList<long>>(_client, WebMethod.Get, "mutes/users/ids", FormatAsString, "?cursor=", cursor);
-		}
+					}
 
         
 		public virtual IAsyncResult BeginListMutedUsers(ListMutedUsersOptions options)
 		{
-			var cursor = options.Cursor;
+						var cursor = options.Cursor;
 				
 
 			return BeginWithHammock<TwitterCursorList<TwitterUser>>(_client, WebMethod.Get, "mutes/users/list", FormatAsString, "?cursor=", cursor);
-		}
+					}
 
         
 		public virtual IAsyncResult BeginListUserProfilesFor(ListUserProfilesForOptions options)
 		{
-			var screen_name = options.ScreenName;
+						var screen_name = options.ScreenName;
 			var user_id = options.UserId;
 			var include_entities = options.IncludeEntities;
 				
 
 			return BeginWithHammock<IEnumerable<TwitterUser>>(_client, WebMethod.Get, "users/lookup", FormatAsString, "?screen_name=", screen_name, "&user_id=", user_id, "&include_entities=", include_entities);
-		}
+					}
 
         
 		public virtual IAsyncResult BeginGetUserProfileFor(GetUserProfileForOptions options)
 		{
-			var user_id = options.UserId;
+						var user_id = options.UserId;
 			var screen_name = options.ScreenName;
 			var include_entities = options.IncludeEntities;
 				
 
 			return BeginWithHammock<TwitterUser>(_client, WebMethod.Get, "users/show", FormatAsString, "?user_id=", user_id, "&screen_name=", screen_name, "&include_entities=", include_entities);
-		}
+					}
 
         
 		public virtual IAsyncResult BeginSearchForUser(SearchForUserOptions options)
 		{
-			var q = options.Q;
+						var q = options.Q;
 			var page = options.Page;
 			var count = options.Count;
 			var include_entities = options.IncludeEntities;
 				
 
 			return BeginWithHammock<IEnumerable<TwitterUser>>(_client, WebMethod.Get, "users/search", FormatAsString, "?q=", q, "&page=", page, "&count=", count, "&include_entities=", include_entities);
-		}
+					}
 
         
 		public virtual IAsyncResult BeginGetProfileBannerFor(GetProfileBannerForOptions options)
 		{
-			var screen_name = options.ScreenName;
+						var screen_name = options.ScreenName;
 			var user_id = options.UserId;
 				
 
 			return BeginWithHammock<ProfileBanners>(_client, WebMethod.Get, "users/profile_banner", FormatAsString, "?screen_name=", screen_name, "&user_id=", user_id);
-		}
+					}
 
         
 		public virtual IAsyncResult BeginListSuggestedUsers(ListSuggestedUsersOptions options)
 		{
-			var slug = options.Slug;
+						var slug = options.Slug;
 			var lang = options.Lang;
 				
 
 			return BeginWithHammock<TwitterUserSuggestions>(_client, WebMethod.Get, "/users/suggestions/{slug}", FormatAsString, "?slug=", slug, "&lang=", lang);
-		}
+					}
 
         
 		public virtual IAsyncResult BeginListSuggestedUserCategories(ListSuggestedUserCategoriesOptions options)
 		{
-			var lang = options.Lang;
+						var lang = options.Lang;
 				
 
 			return BeginWithHammock<IEnumerable<TwitterUserSuggestions>>(_client, WebMethod.Get, "users/suggestions", FormatAsString, "?lang=", lang);
-		}
+					}
 
         
 		public virtual IAsyncResult BeginGetSuggestedUserMembers(GetSuggestedUserMembersOptions options)
 		{
-			var slug = options.Slug;
+						var slug = options.Slug;
 				
 
 			return BeginWithHammock<IEnumerable<TwitterUser>>(_client, WebMethod.Get, "/users/suggestions/{slug}/members", FormatAsString, "?slug=", slug);
-		}
+					}
 
         
 		public virtual IAsyncResult BeginListFavoriteTweets(ListFavoriteTweetsOptions options)
 		{
-			var user_id = options.UserId;
+						var user_id = options.UserId;
 			var screen_name = options.ScreenName;
 			var count = options.Count;
 			var since_id = options.SinceId;
@@ -5500,53 +5495,53 @@ namespace TweetSharp
 				
 
 			return BeginWithHammock<IEnumerable<TwitterStatus>>(_client, WebMethod.Get, "favorites/list", FormatAsString, "?user_id=", user_id, "&screen_name=", screen_name, "&count=", count, "&since_id=", since_id, "&max_id=", max_id, "&include_entities=", include_entities, "&tweet_mode=", tweet_mode);
-		}
+					}
 
         
 		public virtual IAsyncResult BeginUnfavoriteTweet(UnfavoriteTweetOptions options)
 		{
-			var id = options.Id;
+						var id = options.Id;
 				
 
 			return BeginWithHammock<TwitterStatus>(_client, WebMethod.Post, "favorites/destroy", FormatAsString, "?id=", id);
-		}
+					}
 
         
 		public virtual IAsyncResult BeginFavoriteTweet(FavoriteTweetOptions options)
 		{
-			var id = options.Id;
+						var id = options.Id;
 			var include_entities = options.IncludeEntities;
 				
 
 			return BeginWithHammock<TwitterStatus>(_client, WebMethod.Post, "favorites/create", FormatAsString, "?id=", id, "&include_entities=", include_entities);
-		}
+					}
 
         
 		public virtual IAsyncResult BeginListListsFor(ListListsForOptions options)
 		{
-			var user_id = options.UserId;
+						var user_id = options.UserId;
 			var screen_name = options.ScreenName;
 				
 
 			return BeginWithHammock<IEnumerable<TwitterList>>(_client, WebMethod.Get, "lists/list", FormatAsString, "?user_id=", user_id, "&screen_name=", screen_name);
-		}
+					}
 
         
 		public virtual IAsyncResult BeginListOwnedListsFor(ListOwnedListsForOptions options)
 		{
-			var user_id = options.UserId;
+						var user_id = options.UserId;
 			var screen_name = options.ScreenName;
 			var count = options.Count;
 			var cursor = options.Cursor;
 				
 
 			return BeginWithHammock<TwitterCursorList<TwitterList>>(_client, WebMethod.Get, "lists/ownerships", FormatAsString, "?user_id=", user_id, "&screen_name=", screen_name, "&count=", count, "&cursor=", cursor);
-		}
+					}
 
         
 		public virtual IAsyncResult BeginListTweetsOnList(ListTweetsOnListOptions options)
 		{
-			var list_id = options.ListId;
+						var list_id = options.ListId;
 			var slug = options.Slug;
 			var owner_screen_name = options.OwnerScreenName;
 			var owner_id = options.OwnerId;
@@ -5559,12 +5554,12 @@ namespace TweetSharp
 				
 
 			return BeginWithHammock<IEnumerable<TwitterStatus>>(_client, WebMethod.Get, "lists/statuses", FormatAsString, "?list_id=", list_id, "&slug=", slug, "&owner_screen_name=", owner_screen_name, "&owner_id=", owner_id, "&since_id=", since_id, "&max_id=", max_id, "&count=", count, "&include_entities=", include_entities, "&include_rts=", include_rts, "&tweet_mode=", tweet_mode);
-		}
+					}
 
         
 		public virtual IAsyncResult BeginRemoveListMember(RemoveListMemberOptions options)
 		{
-			var list_id = options.ListId;
+						var list_id = options.ListId;
 			var slug = options.Slug;
 			var user_id = options.UserId;
 			var screen_name = options.ScreenName;
@@ -5573,24 +5568,24 @@ namespace TweetSharp
 				
 
 			return BeginWithHammock<TwitterUser>(_client, WebMethod.Post, "lists/members/destroy", FormatAsString, "?list_id=", list_id, "&slug=", slug, "&user_id=", user_id, "&screen_name=", screen_name, "&owner_screen_name=", owner_screen_name, "&owner_id=", owner_id);
-		}
+					}
 
         
 		public virtual IAsyncResult BeginListListMembershipsFor(ListListMembershipsForOptions options)
 		{
-			var user_id = options.UserId;
+						var user_id = options.UserId;
 			var screen_name = options.ScreenName;
 			var cursor = options.Cursor;
 			var filter_to_owned_lists = options.FilterToOwnedLists;
 				
 
 			return BeginWithHammock<TwitterCursorList<TwitterList>>(_client, WebMethod.Get, "lists/memberships", FormatAsString, "?user_id=", user_id, "&screen_name=", screen_name, "&cursor=", cursor, "&filter_to_owned_lists=", filter_to_owned_lists);
-		}
+					}
 
         
 		public virtual IAsyncResult BeginListListSubscribers(ListListSubscribersOptions options)
 		{
-			var list_id = options.ListId;
+						var list_id = options.ListId;
 			var slug = options.Slug;
 			var owner_screen_name = options.OwnerScreenName;
 			var owner_id = options.OwnerId;
@@ -5600,24 +5595,24 @@ namespace TweetSharp
 				
 
 			return BeginWithHammock<TwitterCursorList<TwitterUser>>(_client, WebMethod.Get, "lists/subscribers", FormatAsString, "?list_id=", list_id, "&slug=", slug, "&owner_screen_name=", owner_screen_name, "&owner_id=", owner_id, "&cursor=", cursor, "&include_entities=", include_entities, "&skip_status=", skip_status);
-		}
+					}
 
         
 		public virtual IAsyncResult BeginFollowList(FollowListOptions options)
 		{
-			var owner_screen_name = options.OwnerScreenName;
+						var owner_screen_name = options.OwnerScreenName;
 			var owner_id = options.OwnerId;
 			var list_id = options.ListId;
 			var slug = options.Slug;
 				
 
 			return BeginWithHammock<TwitterUser>(_client, WebMethod.Post, "lists/subscribers/create", FormatAsString, "?owner_screen_name=", owner_screen_name, "&owner_id=", owner_id, "&list_id=", list_id, "&slug=", slug);
-		}
+					}
 
         
 		public virtual IAsyncResult BeginVerifyListSubscription(VerifyListSubscriptionOptions options)
 		{
-			var owner_screen_name = options.OwnerScreenName;
+						var owner_screen_name = options.OwnerScreenName;
 			var owner_id = options.OwnerId;
 			var list_id = options.ListId;
 			var slug = options.Slug;
@@ -5628,24 +5623,24 @@ namespace TweetSharp
 				
 
 			return BeginWithHammock<TwitterUser>(_client, WebMethod.Get, "lists/subscribers/show", FormatAsString, "?owner_screen_name=", owner_screen_name, "&owner_id=", owner_id, "&list_id=", list_id, "&slug=", slug, "&user_id=", user_id, "&screen_name=", screen_name, "&include_entities=", include_entities, "&skip_status=", skip_status);
-		}
+					}
 
         
 		public virtual IAsyncResult BeginUnfollowList(UnfollowListOptions options)
 		{
-			var list_id = options.ListId;
+						var list_id = options.ListId;
 			var slug = options.Slug;
 			var owner_screen_name = options.OwnerScreenName;
 			var owner_id = options.OwnerId;
 				
 
 			return BeginWithHammock<TwitterUser>(_client, WebMethod.Post, "lists/subscribers/destroy", FormatAsString, "?list_id=", list_id, "&slug=", slug, "&owner_screen_name=", owner_screen_name, "&owner_id=", owner_id);
-		}
+					}
 
         
 		public virtual IAsyncResult BeginAddListMembers(AddListMembersOptions options)
 		{
-			var list_id = options.ListId;
+						var list_id = options.ListId;
 			var slug = options.Slug;
 			var user_id = options.UserId;
 			var screen_name = options.ScreenName;
@@ -5654,12 +5649,12 @@ namespace TweetSharp
 				
 
 			return BeginWithHammock<TwitterList>(_client, WebMethod.Post, "lists/members/create_all", FormatAsString, "?list_id=", list_id, "&slug=", slug, "&user_id=", user_id, "&screen_name=", screen_name, "&owner_screen_name=", owner_screen_name, "&owner_id=", owner_id);
-		}
+					}
 
         
 		public virtual IAsyncResult BeginVerifyListMembership(VerifyListMembershipOptions options)
 		{
-			var list_id = options.ListId;
+						var list_id = options.ListId;
 			var slug = options.Slug;
 			var user_id = options.UserId;
 			var screen_name = options.ScreenName;
@@ -5670,12 +5665,12 @@ namespace TweetSharp
 				
 
 			return BeginWithHammock<TwitterUser>(_client, WebMethod.Get, "lists/members/show", FormatAsString, "?list_id=", list_id, "&slug=", slug, "&user_id=", user_id, "&screen_name=", screen_name, "&owner_screen_name=", owner_screen_name, "&owner_id=", owner_id, "&include_entities=", include_entities, "&skip_status=", skip_status);
-		}
+					}
 
         
 		public virtual IAsyncResult BeginListListMembers(ListListMembersOptions options)
 		{
-			var list_id = options.ListId;
+						var list_id = options.ListId;
 			var slug = options.Slug;
 			var owner_screen_name = options.OwnerScreenName;
 			var owner_id = options.OwnerId;
@@ -5686,12 +5681,12 @@ namespace TweetSharp
 				
 
 			return BeginWithHammock<TwitterCursorList<TwitterUser>>(_client, WebMethod.Get, "lists/members", FormatAsString, "?list_id=", list_id, "&slug=", slug, "&owner_screen_name=", owner_screen_name, "&owner_id=", owner_id, "&count=", count, "&cursor=", cursor, "&include_entities=", include_entities, "&skip_status=", skip_status);
-		}
+					}
 
         
 		public virtual IAsyncResult BeginAddListMember(AddListMemberOptions options)
 		{
-			var list_id = options.ListId;
+						var list_id = options.ListId;
 			var slug = options.Slug;
 			var user_id = options.UserId;
 			var screen_name = options.ScreenName;
@@ -5700,24 +5695,24 @@ namespace TweetSharp
 				
 
 			return BeginWithHammock<TwitterUser>(_client, WebMethod.Post, "lists/members/create", FormatAsString, "?list_id=", list_id, "&slug=", slug, "&user_id=", user_id, "&screen_name=", screen_name, "&owner_screen_name=", owner_screen_name, "&owner_id=", owner_id);
-		}
+					}
 
         
 		public virtual IAsyncResult BeginDeleteList(DeleteListOptions options)
 		{
-			var owner_screen_name = options.OwnerScreenName;
+						var owner_screen_name = options.OwnerScreenName;
 			var owner_id = options.OwnerId;
 			var list_id = options.ListId;
 			var slug = options.Slug;
 				
 
 			return BeginWithHammock<TwitterList>(_client, WebMethod.Post, "lists/destroy", FormatAsString, "?owner_screen_name=", owner_screen_name, "&owner_id=", owner_id, "&list_id=", list_id, "&slug=", slug);
-		}
+					}
 
         
 		public virtual IAsyncResult BeginUpdateList(UpdateListOptions options)
 		{
-			var owner_screen_name = options.OwnerScreenName;
+						var owner_screen_name = options.OwnerScreenName;
 			var owner_id = options.OwnerId;
 			var list_id = options.ListId;
 			var slug = options.Slug;
@@ -5727,92 +5722,92 @@ namespace TweetSharp
 				
 
 			return BeginWithHammock<TwitterList>(_client, WebMethod.Post, "lists/update", FormatAsString, "?owner_screen_name=", owner_screen_name, "&owner_id=", owner_id, "&list_id=", list_id, "&slug=", slug, "&mode=", mode, "&name=", name, "&description=", description);
-		}
+					}
 
         
 		public virtual IAsyncResult BeginCreateList(CreateListOptions options)
 		{
-			var list_owner = options.ListOwner;
+						var list_owner = options.ListOwner;
 			var name = options.Name;
 			var mode = options.Mode;
 			var description = options.Description;
 				
 
 			return BeginWithHammock<TwitterList>(_client, WebMethod.Post, "lists/create", FormatAsString, "?list_owner=", list_owner, "&name=", name, "&mode=", mode, "&description=", description);
-		}
+					}
 
         
 		public virtual IAsyncResult BeginGetList(GetListOptions options)
 		{
-			var list_id = options.ListId;
+						var list_id = options.ListId;
 			var slug = options.Slug;
 			var owner_screen_name = options.OwnerScreenName;
 			var owner_id = options.OwnerId;
 				
 
 			return BeginWithHammock<TwitterList>(_client, WebMethod.Get, "lists/show", FormatAsString, "?list_id=", list_id, "&slug=", slug, "&owner_screen_name=", owner_screen_name, "&owner_id=", owner_id);
-		}
+					}
 
         
 		public virtual IAsyncResult BeginListSubscriptions(ListSubscriptionsOptions options)
 		{
-			var user_id = options.UserId;
+						var user_id = options.UserId;
 			var screen_name = options.ScreenName;
 			var count = options.Count;
 			var cursor = options.Cursor;
 				
 
 			return BeginWithHammock<TwitterCursorList<TwitterList>>(_client, WebMethod.Get, "lists/subscriptions", FormatAsString, "?user_id=", user_id, "&screen_name=", screen_name, "&count=", count, "&cursor=", cursor);
-		}
+					}
 
         
 		public virtual IAsyncResult BeginListSavedSearches()
 		{
-				
+							
 
 			return BeginWithHammock<IEnumerable<TwitterSavedSearch>>(_client, WebMethod.Get, "saved_searches/list", FormatAsString);
-		}
+					}
 
         
 		public virtual IAsyncResult BeginGetSavedSearch(GetSavedSearchOptions options)
 		{
-			var id = options.Id;
+						var id = options.Id;
 				
 
 			return BeginWithHammock<TwitterSavedSearch>(_client, WebMethod.Get, "saved_searches/show/{id}", FormatAsString, "?id=", id);
-		}
+					}
 
         
 		public virtual IAsyncResult BeginCreateSavedSearch(CreateSavedSearchOptions options)
 		{
-			var query = options.Query;
+						var query = options.Query;
 				
 
 			return BeginWithHammock<TwitterSavedSearch>(_client, WebMethod.Post, "saved_searches/create", FormatAsString, "?query=", query);
-		}
+					}
 
         
 		public virtual IAsyncResult BeginDeleteSavedSearch(DeleteSavedSearchOptions options)
 		{
-			var id = options.Id;
+						var id = options.Id;
 				
 
 			return BeginWithHammock<TwitterSavedSearch>(_client, WebMethod.Post, "saved_searches/destroy/{id}", FormatAsString, "?id=", id);
-		}
+					}
 
         
 		public virtual IAsyncResult BeginGetPlace(GetPlaceOptions options)
 		{
-			var place_id = options.PlaceId;
+						var place_id = options.PlaceId;
 				
 
 			return BeginWithHammock<TwitterPlace>(_client, WebMethod.Get, "geo/id/{place_id}", FormatAsString, "?place_id=", place_id);
-		}
+					}
 
         
 		public virtual IAsyncResult BeginReverseGeocode(ReverseGeocodeOptions options)
 		{
-			var lat = options.Lat;
+						var lat = options.Lat;
 			var @long = options.@Long;
 			var accuracy = options.Accuracy;
 			var granularity = options.Granularity;
@@ -5821,12 +5816,12 @@ namespace TweetSharp
 				
 
 			return BeginWithHammock<IEnumerable<TwitterPlace>>(_client, WebMethod.Get, "geo/reverse_geocode", FormatAsString, "?lat=", lat, "&long=", @long, "&accuracy=", accuracy, "&granularity=", granularity, "&max_results=", max_results, "&callback=", callback);
-		}
+					}
 
         
 		public virtual IAsyncResult BeginGeoSearch(GeoSearchOptions options)
 		{
-			var lat = options.Lat;
+						var lat = options.Lat;
 			var @long = options.@Long;
 			var query = options.Query;
 			var ip = options.Ip;
@@ -5838,54 +5833,54 @@ namespace TweetSharp
 				
 
 			return BeginWithHammock<IEnumerable<TwitterPlace>>(_client, WebMethod.Get, "geo/search", FormatAsString, "?lat=", lat, "&long=", @long, "&query=", query, "&ip=", ip, "&granularity=", granularity, "&accuracy=", accuracy, "&max_results=", max_results, "&contained_within=", contained_within, "&callback=", callback);
-		}
+					}
 
         
 		public virtual IAsyncResult BeginListLocalTrendsFor(ListLocalTrendsForOptions options)
 		{
-			var id = options.Id;
+						var id = options.Id;
 			var exclude = options.Exclude;
 				
 
 			return BeginWithHammock<TwitterTrends>(_client, WebMethod.Get, "trends/place", FormatAsString, "?id=", id, "&exclude=", exclude);
-		}
+					}
 
         
 		public virtual IAsyncResult BeginListAvailableTrendsLocations()
 		{
-				
+							
 
 			return BeginWithHammock<IEnumerable<WhereOnEarthLocation>>(_client, WebMethod.Get, "trends/available", FormatAsString);
-		}
+					}
 
         
 		public virtual IAsyncResult BeginListClosestTrendsLocations(ListClosestTrendsLocationsOptions options)
 		{
-			var lat = options.Lat;
+						var lat = options.Lat;
 			var @long = options.@Long;
 				
 
 			return BeginWithHammock<IEnumerable<WhereOnEarthLocation>>(_client, WebMethod.Get, "trends/closest", FormatAsString, "?lat=", lat, "&long=", @long);
-		}
+					}
 
         
 		public virtual IAsyncResult BeginGetRateLimitStatus(GetRateLimitStatusOptions options)
 		{
-			var resources = options.Resources;
+						var resources = options.Resources;
 				
 
 			return BeginWithHammock<TwitterRateLimitStatusSummary>(_client, WebMethod.Get, "application/rate_limit_status", FormatAsString, "?resources=", resources);
-		}
+					}
 
         
 		public virtual IAsyncResult BeginReportSpam(ReportSpamOptions options)
 		{
-			var screen_name = options.ScreenName;
+						var screen_name = options.ScreenName;
 			var user_id = options.UserId;
 				
 
 			return BeginWithHammock<TwitterUser>(_client, WebMethod.Post, "users/report_spam", FormatAsString, "?screen_name=", screen_name, "&user_id=", user_id);
-		}
+					}
 
         
 		public virtual TwitterConfiguration EndGetConfiguration(IAsyncResult result) 

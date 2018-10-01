@@ -1481,14 +1481,19 @@ namespace TweetSharp.Tests.Service
 		[Test]
 		public void Can_GetPublicTimeline_AppAuthOnly()
 		{
-			var service = new TwitterService(_consumerKey, _consumerSecret);
-			service.TraceEnabled = true;
-			ListTweetsOnUserTimelineOptions lto = new ListTweetsOnUserTimelineOptions();
-			lto.ScreenName = "yortw";
-			lto.Count = 5;
-			lto.IncludeRts = true;
-			lto.ExcludeReplies = true;
-			lto.TrimUser = true;
+			var service = new TwitterService(_consumerKey, _consumerSecret)
+			{
+				TraceEnabled = true
+			};
+
+			ListTweetsOnUserTimelineOptions lto = new ListTweetsOnUserTimelineOptions()
+			{
+				ScreenName = "yortw",
+				Count = 5,
+				IncludeRts = true,
+				ExcludeReplies = true,
+				TrimUser = true
+			};
 			var result = service.ListTweetsOnUserTimeline(lto);
 			var tweets = result.OrderByDescending(data => data.Id).ToList();
 			Assert.IsNotNull(tweets);
@@ -1735,6 +1740,86 @@ namespace TweetSharp.Tests.Service
 					Mediatype = "media"
 				}
 			);
+
+			AssertResultWas(service, HttpStatusCode.OK);
+			Assert.IsNotNull(result);
+			Assert.IsNotNull(result.Event);
+			Assert.NotZero(result.Event.Id);
+
+			var rate = service.Response.RateLimitStatus;
+			Assert.IsNotNull(rate);
+			Console.WriteLine("You have " + rate.RemainingHits + " left out of " + rate.HourlyLimit);
+		}
+
+		[Test]
+		public async Task Can_Send_DirectMessageWithMediaAsync()
+		{
+			var service = GetAuthenticatedService();
+			long mediaId = 0;
+
+			using (var stream = new FileStream(System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"big_buck_bunny.mp4"), FileMode.Open, FileAccess.Read, FileShare.Read))
+			{
+				TwitterChunkedMedia uploadedMedia = await InitialiseMediaUploadAsync(service, stream, false, TwitterMediaCategory.DirectMessage_Video);
+
+				await UploadMediaChunksAsync(service, stream, uploadedMedia);
+
+				await FinializeMediaAndWaitForProcessingAsync(service, uploadedMedia);
+
+				mediaId = uploadedMedia.MediaId;
+			}
+
+			var user = service.GetUserProfileFor(new GetUserProfileForOptions() { ScreenName = "yortw" });
+			var result = await service.SendDirectMessageAsync
+			(
+				new SendDirectMessageOptions()
+				{
+					Text = "Hello! #welcome " + DateTime.Now,
+					Recipientid = user.Id,
+					Mediaid = mediaId,
+					Mediatype = "media"
+				}
+			);
+
+			AssertResultWas(service, HttpStatusCode.OK);
+			Assert.IsNotNull(result);
+			Assert.IsNotNull(result.Value.Event);
+			Assert.NotZero(result.Value.Event.Id);
+
+			var rate = service.Response.RateLimitStatus;
+			Assert.IsNotNull(rate);
+			Console.WriteLine("You have " + rate.RemainingHits + " left out of " + rate.HourlyLimit);
+		}
+
+		[Test]
+		public async Task Can_Send_DirectMessageWithMediaAsyncResult()
+		{
+			var service = GetAuthenticatedService();
+			long mediaId = 0;
+
+			using (var stream = new FileStream(System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"big_buck_bunny.mp4"), FileMode.Open, FileAccess.Read, FileShare.Read))
+			{
+				TwitterChunkedMedia uploadedMedia = await InitialiseMediaUploadAsync(service, stream, false, TwitterMediaCategory.DirectMessage_Video);
+
+				await UploadMediaChunksAsync(service, stream, uploadedMedia);
+
+				await FinializeMediaAndWaitForProcessingAsync(service, uploadedMedia);
+
+				mediaId = uploadedMedia.MediaId;
+			}
+
+			var user = service.GetUserProfileFor(new GetUserProfileForOptions() { ScreenName = "yortw" });
+			var asyncResult = service.BeginSendDirectMessage
+			(
+				new SendDirectMessageOptions()
+				{
+					Text = "Hello! #welcome " + DateTime.Now,
+					Recipientid = user.Id,
+					Mediaid = mediaId,
+					Mediatype = "media"
+				}
+			);
+
+			var result = service.EndSendDirectMessage(asyncResult);
 
 			AssertResultWas(service, HttpStatusCode.OK);
 			Assert.IsNotNull(result);

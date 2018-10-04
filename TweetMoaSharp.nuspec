@@ -2,7 +2,7 @@
 <package>
 	<metadata>
 		<id>TweetMoaSharp</id>
-		<version>5.0.0</version>
+		<version>5.1.0</version>
 		<dependencies>
 			<group>
 				<dependency id="Newtonsoft.Json" version="11.0.2" />
@@ -18,13 +18,9 @@
 		<iconUrl>https://raw.githubusercontent.com/Yortw/tweetmoasharp/master/logo_tweetmoasharp.png</iconUrl>
 		<tags>twitter tweetmoasharp tweetsharp web api http rest wrapper json winrt uwp netcore netstandard10 netstandard20</tags>
 		<releaseNotes>
-			New in 5.0.0.0
+			New in 5.1.0
 			----------
-			- Removed support for Silverlight, WP, and WP Mango.
-			- Added support for Net Standard 2.0
-			- Updated Json.Net dependency, minimum required now 11.0.2.
-			- Removed streaming API (Twitter killed it)
-			- Support for latest Direct Message API (see https://developer.twitter.com/content/dam/developer-twitter/pdfs-and-files/DM%20-%20Migration%20Guide.pdf)
+			- Async Direct Message methods now use the new API (and actually work)
  		</releaseNotes>
 	</metadata>
 	<files>

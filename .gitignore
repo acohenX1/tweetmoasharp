@@ -35,6 +35,7 @@ publish.xml
 TestResults
 .vs
 src/.vs
+*/.vs
 
 src/net40/TweetSharp.Next/obj/
 src/_ReSharper.TweetSharp.WindowsPhone/

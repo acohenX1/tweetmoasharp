@@ -64,7 +64,7 @@ namespace TweetSharp
 #if !Smartphone && !NET20
 		[DataMember]
 #endif
-		[JsonProperty("created_at")]
+		[JsonProperty("created_timestamp")]
 		public virtual DateTime CreatedAt
 		{
 			get { return _createdAt; }

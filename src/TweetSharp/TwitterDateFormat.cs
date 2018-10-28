@@ -45,6 +45,10 @@ namespace TweetSharp
 		/// TrendsWeekly
 		/// </summary>
 		[Description("yyyy-MM-dd")]
-		TrendsWeekly
+		TrendsWeekly,
+		/// <summary>
+		/// Used by the new direct messaging/event API.
+		/// </summary>
+		MillisecondsSinceEpoch
 	}
 }

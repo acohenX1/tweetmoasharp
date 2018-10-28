@@ -33,6 +33,8 @@ namespace TweetSharp
 		private static readonly IDictionary<string, string> _map =
 				new Dictionary<string, string>();
 
+		private static readonly DateTime Epoch = new DateTime(1970, 01, 01, 0, 0, 0, DateTimeKind.Utc);
+
 		/// <summary>
 		/// Gets or sets the Twitter-based date format.
 		/// </summary>
@@ -75,6 +77,9 @@ namespace TweetSharp
 		public static string ConvertFromDateTime(DateTime input, TwitterDateFormat format)
 		{
 			EnsureDateFormatsAreMapped();
+
+			if (format == TwitterDateFormat.MillisecondsSinceEpoch)
+				return input.Subtract(Epoch).TotalMilliseconds.ToString();
 
 #if !SILVERLIGHT && !Smartphone
 			var name = Enum.GetName(typeof(TwitterDateFormat), format);
@@ -120,6 +125,15 @@ namespace TweetSharp
 				}
 			}
 
+			if (Int64.TryParse(input, out var millisecondsSinceEpoch))
+			{
+				return new DateTime
+				(
+					Epoch.Add(TimeSpan.FromMilliseconds(millisecondsSinceEpoch)).Ticks,
+					DateTimeKind.Utc
+				);
+			}
+
 			return default(DateTime);
 		}
 
@@ -150,6 +164,15 @@ namespace TweetSharp
 						var kind = Enum.Parse(typeof(TwitterDateFormat), format.Key, true);
 						return new TwitterDateTime(date, (TwitterDateFormat)kind);
 					}
+				}
+
+				if (Int64.TryParse(input, out var millisecondsSinceEpoch))
+				{
+					return new TwitterDateTime
+					(
+						new DateTime(Epoch.Add(TimeSpan.FromMilliseconds(millisecondsSinceEpoch)).Ticks, DateTimeKind.Utc),
+						TwitterDateFormat.MillisecondsSinceEpoch
+					);
 				}
 
 				return default(TwitterDateTime);
@@ -188,9 +211,12 @@ namespace TweetSharp
 											var fi = typeof(TwitterDateFormat).GetTypeInfo().GetDeclaredField(name);
 											var attributes = System.Linq.Enumerable.ToArray(fi.GetCustomAttributes(typeof(DescriptionAttribute), false));
 #endif
-						var format = (DescriptionAttribute)attributes[0];
-
-						_map.Add(name, format.Description);
+						if (attributes.Length > 0)
+						{
+							var format = (DescriptionAttribute)attributes[0];
+							if (!String.IsNullOrEmpty(format.Description))
+								_map.Add(name, format.Description);
+						}
 					}
 					finally
 					{

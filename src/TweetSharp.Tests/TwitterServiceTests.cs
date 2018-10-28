@@ -1745,6 +1745,7 @@ namespace TweetSharp.Tests.Service
 			Assert.IsNotNull(result);
 			Assert.IsNotNull(result.Event);
 			Assert.NotZero(result.Event.Id);
+			Assert.AreNotEqual(DateTime.MinValue, result.Event.CreatedAt);
 
 			var rate = service.Response.RateLimitStatus;
 			Assert.IsNotNull(rate);

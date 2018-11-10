@@ -5,7 +5,7 @@ TwitterDirectMessageResult, "direct_messages/events/new":POST.JSONBODY, SendDire
 TwitterDirectMessageResult, "direct_messages/events/show", GetDirectMessage, long id
 
 //GET direct_messages/events/list (get set of dms)
-TwitterDirectMessageListResult, "direct_messages/events/list", ListDirectMessages, long? count, long? cursor
+TwitterDirectMessageListResult, "direct_messages/events/list", ListDirectMessages, long? count, string cursor
 
 // DELETE void, "direct_messages/events/destroy", DeleteDirectMessage, long id
 void, "direct_messages/events/destroy":DELETE, DeleteDirectMessage, long id

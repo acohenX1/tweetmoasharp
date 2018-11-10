@@ -207,7 +207,7 @@ namespace TweetSharp
 	public class ListDirectMessagesOptions
 	{ 
 		public long? Count { get; set; }  
-		public long? Cursor { get; set; } 			
+		public string Cursor { get; set; } 			
 	}			
  
     		
